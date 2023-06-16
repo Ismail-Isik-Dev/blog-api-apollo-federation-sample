@@ -6,6 +6,7 @@ import http from 'http';
 import cors from 'cors';
 import parser from 'body-parser';
 // import { typeDefs, resolvers } from './schema';
+// Test comment
 
 const typeDefs = `#graphql
 # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
