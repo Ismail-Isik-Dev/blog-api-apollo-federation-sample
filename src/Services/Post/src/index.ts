@@ -42,7 +42,7 @@ const resolvers = {
 };
 
 interface MyContext {
-    token?: String;
+    token?: string;
 }
 
 const app = express();
@@ -50,7 +50,7 @@ const httpServer = http.createServer(app);
 const server = new ApolloServer<MyContext>({
     typeDefs,
     resolvers,
-    plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+    plugins: [ ApolloServerPluginDrainHttpServer({ httpServer }) ],
 });
 await server.start();
 app.use(
@@ -63,4 +63,4 @@ app.use(
 );
 
 await new Promise<void>((resolve) => httpServer.listen({ port: 4000 }, resolve));
-console.log(`🚀 Server ready at http://localhost:4000/graphql`);
+console.log('🚀 Server ready at http://localhost:4000/graphql');

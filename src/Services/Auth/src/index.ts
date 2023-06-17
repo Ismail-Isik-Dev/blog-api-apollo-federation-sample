@@ -6,7 +6,6 @@ import http from 'http';
 import cors from 'cors';
 import parser from 'body-parser';
 // import { typeDefs, resolvers } from './schema';
-// Test comment
 
 const typeDefs = `#graphql
 # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
@@ -43,7 +42,7 @@ const resolvers = {
 };
 
 interface MyContext {
-    token?: String;
+    token?: string;
 }
 
 const app = express();
@@ -51,7 +50,7 @@ const httpServer = http.createServer(app);
 const server = new ApolloServer<MyContext>({
     typeDefs,
     resolvers,
-    plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+    plugins: [ ApolloServerPluginDrainHttpServer({ httpServer }) ],
 });
 await server.start();
 app.use(
@@ -64,4 +63,6 @@ app.use(
 );
 
 await new Promise<void>((resolve) => httpServer.listen({ port: 4000 }, resolve));
+
+// eslint-disable-next-line quotes
 console.log(`🚀 Server ready at http://localhost:4000/graphql`);
